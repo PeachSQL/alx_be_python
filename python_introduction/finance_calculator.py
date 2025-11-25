@@ -5,7 +5,7 @@ monhtly_income = int(monthly_income_string)
 monthly_expenses_string = input("Enter your monhtly expenses: ")
 monthly_expenses = int(monthly_expenses_string)
 
-monthly_savings = monhtly_income - monthly_expenses
+monthly_savings = monhtly_income - monthly_expenses|float
 
 projected_savings = monthly_savings * 12 + (monthly_savings * 12 * 0.05)
 
