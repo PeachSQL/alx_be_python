@@ -5,33 +5,29 @@ def main():
 
     # Prompt user for task details
     task = input("Enter your task: ")
-    priority = input("Priority (high/medium/low): ").lower()
-    time_bound = input("Is it time-bound? (yes/no): ").lower()
+    priority = input("Priority (high/medium/low): ").strip().lower()
+    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
-    # Start building the reminder message
-    reminder_message = f"'{task}' is a "
-
-    # Match Case for priority handling
+    # Determine the priority phrase using Match Case
     match priority:
         case "high":
-            reminder_message += "high priority task"
+            priority_phrase = "high priority task"
         case "medium":
-            reminder_message += "medium priority task"
+            priority_phrase = "medium priority task"
         case "low":
-            reminder_message += "low priority task"
+            priority_phrase = "low priority task"
         case _:
-            reminder_message += "task with unspecified priority"
+            priority_phrase = "task with unspecified priority"
 
-    # Check if the task is time-sensitive
+    # Build the reminder message (include the task in single quotes)
     if time_bound == "yes":
-        reminder_message += " that requires immediate attention today!"
+        reminder_message = f"'{task}' is a {priority_phrase} that requires immediate attention today!"
     else:
-        reminder_message += ". Consider completing it when you have free time."
+        reminder_message = f"'{task}' is a {priority_phrase}. Consider completing it when you have free time."
 
-    # Display final reminder
-    print("\nReminder:", reminder_message)
+    # Print in the exact format the tests expect (starts with "Reminder:")
+    print(f"Reminder: {reminder_message}")
 
 
-# Run the program
 if __name__ == "__main__":
     main()
